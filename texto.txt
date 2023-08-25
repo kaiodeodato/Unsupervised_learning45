@@ -1,0 +1,61 @@
+Aprendizagem não supervisionada 
+- Basea-se num conjunto de dados que não tem qualquer tipo de resultado previamente conhecido
+
+
+Os valores que você forneceu representam a relação entre o número de clusters (número de k) e a inércia correspondente (soma das distâncias ao quadrado dos pontos em relação ao centro do cluster). O gráfico da inércia em relação ao número de clusters é frequentemente usado para determinar o número adequado de clusters a serem usados em algoritmos de clustering, como o KMeans.
+
+Ao analisar os pontos que você forneceu:
+(2, 5.2e+08)
+(3, 2.7e+08)
+(4, 1.8e+08)
+(5, 1.7e+08)
+(6, 6e+07)
+(7, 3.5e+07)
+(7, 4e+07)
+(8, 2.5e+07)
+(9, 2.4e+07)
+(10, 1.7e+07)
+
+
+Podemos observar que a inércia diminui à medida que o número de clusters aumenta até certo ponto e, em seguida, a taxa de diminuição começa a desacelerar. Isso é o que chamamos de "curva de cotovelo". O ponto onde a taxa de diminuição da inércia começa a desacelerar é frequentemente considerado como um indicador do número adequado de clusters.
+
+Neste caso, parece que há uma mudança acentuada na taxa de diminuição da inércia em torno de 4 ou 5 clusters. Portanto, esse seria um bom ponto para considerar como o "cotovelo" da curva. No entanto, a escolha final do número de clusters depende do seu conhecimento do domínio e dos objetivos do projeto. Você pode escolher entre 4 ou 5 clusters com base nessas informações.
+
+
+cluster_centers = model.clusterCenters()
+
+# Print cluster centers
+for i, center in enumerate(cluster_centers):
+    print(f"Cluster {i + 1} Center: {center}")
+
+
+
+Cluster 1 Center: [127.29337627 125.60645621 127.25826398]
+Cluster 2 Center: [2784.14324657 2761.65272932 2785.52076206]
+Cluster 3 Center: [778.35734171 761.26579454 778.6011883 ]
+Cluster 4 Center: [2123.31453527 2104.71773465 2127.40597848]
+
+
+
+
+# 'ward': Utiliza o método de Ward, que minimiza a soma dos quadrados das diferenças das distâncias entre os pontos de cada cluster e seu centróide.
+# 'complete': Usa a distância máxima entre todas as observações dos clusters.
+# 'average': Utiliza a média das distâncias entre todas as observações dos clusters.
+# 'single': Usa a distância mínima entre todas as observações dos clusters.
+
+'ward': Este método é adequado quando você deseja formar clusters que minimizem a soma dos quadrados das diferenças das distâncias entre os pontos de cada cluster e seu centróide. Ele tende a formar clusters de tamanho mais uniforme e é especialmente útil quando os clusters têm diferentes tamanhos ou densidades. Pode ser mais sensível a outliers.
+
+'complete': Esse método é útil quando você espera que seus clusters tenham formas irregulares e deseja que a distância máxima entre todas as observações dos clusters seja minimizada. Pode ser útil quando você acredita que seus clusters são compactos e bem separados.
+
+'average': O método de linkage 'average' calcula a média das distâncias entre todas as observações dos clusters. Ele é uma escolha intermediária entre os métodos 'ward' e 'complete'. Pode ser uma boa escolha quando você deseja formar clusters que sejam relativamente compactos, mas também pode lidar com clusters de formas irregulares.
+
+'single': Este método usa a distância mínima entre todas as observações dos clusters. Ele tende a formar clusters que são mais sensíveis a outliers e pode ser útil quando você deseja identificar pontos que estão muito próximos uns dos outros.
+
+A escolha do método de linkage deve ser feita com base na natureza dos seus dados e nos padrões que você deseja identificar. É recomendado experimentar diferentes métodos e avaliar os resultados com métricas de qualidade de clustering, como a silhueta, para determinar qual método se ajusta melhor aos seus dados e objetivos.
+
+
+A pontuação de silhueta (Silhouette Score) é uma medida que avalia quão bem os pontos estão agrupados nos clusters. Ela varia de -1 a 1, onde:
+
+Um valor próximo a 1 indica que os pontos estão bem alocados aos seus clusters e estão distantes dos outros clusters.
+Um valor próximo a 0 indica que os pontos estão próximos dos limites dos clusters e podem estar sobrepostos com outros clusters.
+Um valor próximo a -1 indica que os pontos podem estar atribuídos ao cluster errado e deveriam estar em um cluster diferente.
