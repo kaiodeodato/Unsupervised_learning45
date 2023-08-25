@@ -1,13 +1,13 @@
 ## About the project
 
-## Stock Data Clustering Using PySpark K-means
+# Stock Data Clustering Using PySpark K-means
 This project demonstrates how to utilize PySpark for K-means clustering to predict stock data values. The objective is to create a model that predicts stock trends using supervised learning techniques. We'll perform the following steps within a Google Colab notebook:
 
-# Steps:
+## Steps:
 Create a New Notebook:
 Start by creating a new notebook in your Google Colab environment.
 
-# Install PySpark:
+## Install PySpark:
 Install the PySpark module in your Colab environment using the following command:
 
 ```
