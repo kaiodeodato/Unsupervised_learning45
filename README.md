@@ -17,9 +17,8 @@ This project demonstrates how to utilize PySpark for K-means clustering to predi
  • Spark Machile Learnig libraries
 
 
- # Stock Data Clustering Using PySpark K-means
+# Stock Data Clustering Using PySpark K-means
 
-This project demonstrates how to utilize PySpark for K-means clustering to predict stock data values. The objective is to create a model that predicts stock trends using supervised learning techniques. We'll perform the following steps within a Google Colab notebook.
 
 ## Steps:
 
