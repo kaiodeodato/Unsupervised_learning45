@@ -24,7 +24,7 @@ This project demonstrates how to utilize PySpark for K-means clustering to predi
 
 ## 1. Create a New Notebook
 
-Generate a new notebook in your Google Colab environment or in local work machine.
+Generate a new notebook in your Google Colab environment or in your local work machine.
 
 ## 2. Install PySpark
 ```
